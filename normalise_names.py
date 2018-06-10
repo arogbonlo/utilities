@@ -33,7 +33,7 @@ def normalise_names(files):
         print("processing {}".format(f))
         try:
             person_name = f.split("-")
-            name = person_name[2].strip().lower().replace(" ", "_")
+            name = person_name[3].strip().lower().replace(" ", "_")
             extension = person_name[-1].split(".")[1].lower()
             new_name = ".".join((name, extension))
             rename(f, new_name)
