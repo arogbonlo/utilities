@@ -32,8 +32,10 @@ def normalise_names(files):
     for f in files:
         print("processing {}".format(f))
         try:
-            person_name = f.split("-")[2]
-            new_name = person_name.strip().lower().replace(" ", "_")
+            person_name = f.split("-")
+            name = person_name[2].strip().lower().replace(" ", "_")
+            extension = person_name[-1].split(".")[1].lower()
+            new_name = ".".join((name, extension))
             rename(f, new_name)
             i += 1
         except Exception as e:
